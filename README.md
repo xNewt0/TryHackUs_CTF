@@ -2,95 +2,95 @@
 
 # TryHackUs CTF
 
-**A deliberately vulnerable PHP + MySQL + Apache CTF lab**
+**Kasıtlı zafiyetler içeren PHP + MySQL + Apache CTF laboratuvarı**
 
-Cyberpunk-styled, story-driven, Turkish UI + English hints, built for local labs and training environments.
+Siberpunk görselli, hikâye odaklı, Türkçe arayüzlü ve eğitim/lab ortamları için tasarlanmış bir çalışma.
 
 <p>
   <img alt="PHP" src="https://img.shields.io/badge/PHP-8.1%2B-777BB4?style=for-the-badge&logo=php&logoColor=white">
-  <img alt="MySQL" src="https://img.shields.io/badge/MySQL%20%2F%20MariaDB-Required-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+  <img alt="MySQL" src="https://img.shields.io/badge/MySQL%20%2F%20MariaDB-Gerekli-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
   <img alt="Apache" src="https://img.shields.io/badge/Apache-mod__rewrite%20%2B%20.htaccess-D22128?style=for-the-badge&logo=apache&logoColor=white">
-  <img alt="Purpose" src="https://img.shields.io/badge/Purpose-Education%20Only-111111?style=for-the-badge">
+  <img alt="Amaç" src="https://img.shields.io/badge/Amaç-Sadece%20Eğitim-111111?style=for-the-badge">
 </p>
 
 </div>
 
 ---
 
-## Overview
+## Genel Bakış
 
-TryHackUs CTF is a classic LAMP-style training lab designed around **intentionally vulnerable challenge surfaces**.  
-The project uses:
+TryHackUs CTF, **bilinçli olarak zafiyet bırakılmış challenge yüzeyleri** etrafında tasarlanmış klasik bir LAMP tarzı eğitim laboratuvarıdır.  
+Proje şu yapıyı kullanır:
 
 - **Vanilla PHP**
 - **MySQL / MariaDB**
 - **Apache + mod_rewrite + .htaccess**
-- **Turkish interface text**
-- **English challenge hints and vulnerability guidance**
+- **Türkçe arayüz metinleri**
+- **İngilizce challenge ipuçları ve teknik yönlendirmeler**
 
-It is meant for:
+Şunlar için uygundur:
 
-- local lab setups
-- private training environments
-- demo boxes / workshop exercises
-- self-hosted CTF practice
+- yerel lab kurulumları
+- özel eğitim ortamları
+- demo makineleri / workshop egzersizleri
+- self-hosted CTF pratiği
 
-It is **not** intended for internet-facing production deployment.
-
----
-
-## Features
-
-- Story-driven underground portal theme
-- Cyberpunk / terminal-inspired interface
-- 20 challenge flags
-- Mixed difficulty progression: easy → insane
-- Deliberately vulnerable authentication, file handling, API, and admin flows
-- Turkish story text with English technical hints
-- Simple structure for customization and extension
+**İnternete açık production yayını** için tasarlanmamıştır.
 
 ---
 
-## Tech Stack
+## Özellikler
+
+- Hikâye odaklı underground portal teması
+- Cyberpunk / terminal esintili arayüz
+- 20 challenge flag
+- Easy → insane zorluk ilerleyişi
+- Bilinçli olarak zafiyetli authentication, dosya işlemleri, API ve admin akışları
+- Türkçe hikâye/metin yapısı, İngilizce teknik hintler
+- Genişletmesi ve özelleştirmesi kolay sade proje yapısı
+
+---
+
+## Teknoloji Yığını
 
 - **PHP 8.1+**
 - **MySQL / MariaDB**
 - **Apache**
 - **mod_rewrite**
-- **.htaccess support**
+- **.htaccess desteği**
 
 ---
 
-## Project Structure
+## Proje Yapısı
 
 ```text
 .
-├── admin/          # Admin panel, logs, config surfaces
-├── api/            # API endpoints used by challenges
-├── c2/             # Hidden / chained attack surfaces
-├── db/             # Database bootstrap SQL
-├── includes/       # Shared config, auth, db and helper logic
-├── static/         # CSS / JS assets
-├── uploads/        # Writable upload target
-├── *.php           # Main application pages
+├── admin/          # Admin paneli, loglar ve yönetim yüzeyleri
+├── api/            # Challenge'larda kullanılan API endpoint'leri
+├── c2/             # Gizli / chained attack yüzeyleri
+├── db/             # Veritabanı başlangıç SQL'i
+├── includes/       # Ortak config, auth, db ve helper mantığı
+├── static/         # CSS / JS dosyaları
+├── uploads/        # Yazılabilir upload hedefi
+├── *.php           # Ana uygulama sayfaları
 ├── robots.txt
 └── README.md
 ```
 
 ---
 
-## Requirements
+## Gereksinimler
 
-Before starting, make sure you have:
+Başlamadan önce şunların hazır olduğundan emin ol:
 
 - PHP **8.1+**
-- Apache with:
-  - `mod_rewrite` enabled
-  - `.htaccess` support enabled
-- MySQL or MariaDB
-- Writable `uploads/` directory
+- Apache:
+  - `mod_rewrite` açık olmalı
+  - `.htaccess` desteği açık olmalı
+- MySQL veya MariaDB
+- Yazılabilir `uploads/` klasörü
 
-Recommended environment:
+Önerilen ortam:
 
 - Ubuntu / Debian
 - Apache 2.4+
@@ -98,98 +98,98 @@ Recommended environment:
 
 ---
 
-## Quick Start
+## Hızlı Kurulum
 
-### 1) Copy the project into Apache document root
+### 1) Projeyi Apache document root altına kopyala
 
-Example:
+Örnek:
 
 ```bash
 sudo cp -r THUctf /var/www/html/
 ```
 
-Or configure a dedicated virtual host pointing to the project directory.
+Ya da proje dizinine işaret eden ayrı bir virtual host tanımla.
 
-### 2) Update database config
+### 2) Veritabanı config dosyasını düzenle
 
-Edit:
+Düzenlenecek dosya:
 
 ```bash
 includes/config.php
 ```
 
-Set your own:
+Kendi ortamına göre şunları ayarla:
 
-- host / port or socket
-- database name
-- username / password
-- base URL if needed
+- host / port veya socket
+- veritabanı adı
+- kullanıcı adı / şifre
+- gerekirse base URL
 
-### 3) Import the database
+### 3) Veritabanını import et
 
 ```bash
 mysql -u root -p < db/setup.sql
 ```
 
-### 4) Make sure uploads are writable
+### 4) uploads klasörünün yazılabilir olduğundan emin ol
 
 ```bash
 chmod -R 775 uploads
 ```
 
-### 5) Enable Apache rewrite support
+### 5) Apache rewrite desteğini aç
 
 ```bash
 sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```
 
-### 6) Open the lab
+### 6) Laboratuvarı aç
 
 ```text
 http://localhost/THUctf
 ```
 
-or your configured vhost URL.
+veya tanımladığın vhost URL’si üzerinden eriş.
 
 ---
 
-## Challenge Map
+## Challenge Haritası
 
-| ID | Challenge | Vulnerability |
+| ID | Challenge | Zafiyet |
 |---:|---|---|
-| 01 | Robots | Information disclosure |
-| 02 | Source Code | Source code disclosure |
-| 03 | Cookie Monster | Sensitive data in cookie |
+| 01 | Robots | Bilgi sızması |
+| 02 | Source Code | Kaynak kod sızması |
+| 03 | Cookie Monster | Cookie içinde hassas veri |
 | 04 | Reflected XSS | Reflected XSS |
-| 05 | Directory Listing | Directory listing |
-| 06 | HTTP Header | Sensitive data in header |
+| 05 | Directory Listing | Dizin listeleme |
+| 06 | HTTP Header | Header içinde hassas veri |
 | 07 | SQL Injection (Login) | Auth bypass |
 | 08 | IDOR | Broken object-level authorization |
-| 09 | Stored XSS | Persistent XSS |
-| 10 | Path Traversal | Arbitrary file read |
-| 11 | File Upload | Unrestricted file upload |
-| 12 | JWT None Algorithm | JWT misconfiguration |
-| 13 | SQL Injection (UNION) | UNION-based SQLi |
-| 14 | Broken Access Control | Admin API exposure |
+| 09 | Stored XSS | Kalıcı XSS |
+| 10 | Path Traversal | Yetkisiz dosya okuma |
+| 11 | File Upload | Sınırsız / hatalı dosya upload |
+| 12 | JWT None Algorithm | JWT yanlış yapılandırması |
+| 13 | SQL Injection (UNION) | UNION tabanlı SQLi |
+| 14 | Broken Access Control | Admin API açığı |
 | 15 | Log Injection + Path Traversal | LFI / log poisoning |
 | 16 | SSRF | Server-side request forgery |
 | 17 | XXE | XML external entity injection |
-| 18 | Mass Assignment | Privilege escalation |
-| 19 | Chained Access | Multi-step exploitation |
-| 20 | Timing + Extension | Timing leak + hash abuse |
+| 18 | Mass Assignment | Yetki yükseltme |
+| 19 | Chained Access | Çok adımlı exploit zinciri |
+| 20 | Timing + Extension | Timing leak + hash suistimali |
 
 ---
 
-## Notes for Realistic Behavior
+## Gerçekçi Davranış İçin Notlar
 
-Some challenges rely on traditional Apache / LAMP behavior. For best results:
+Bazı challenge’lar klasik Apache / LAMP davranışına dayanır. En sağlıklı sonuç için:
 
-- prefer **Apache** over PHP built-in server
-- keep `.htaccess` active
-- use a real MySQL / MariaDB instance
-- allow writable uploads where intended
-- if testing encoded-path behavior, use compatible Apache settings such as:
+- PHP built-in server yerine **Apache** tercih et
+- `.htaccess` aktif olsun
+- gerçek bir MySQL / MariaDB instance kullan
+- gerekli yerlerde upload klasörü yazılabilir olsun
+- encoded-path davranışları test edilecekse Apache tarafında aşağıdaki gibi uyumlu ayar kullan:
 
 ```apache
 AllowEncodedSlashes NoDecode
@@ -197,47 +197,47 @@ AllowEncodedSlashes NoDecode
 
 ---
 
-## Safety Notice
+## Güvenlik Uyarısı
 
-This repository contains **intentional vulnerabilities** for training purposes.
+Bu repository, **eğitim amacıyla kasıtlı olarak bırakılmış zafiyetler** içerir.
 
-Use it only in:
+Sadece şu ortamlarda kullan:
 
-- local environments
-- isolated labs
-- private CTF/training infrastructure
+- yerel sistemler
+- izole lab ortamları
+- özel CTF / eğitim altyapıları
 
-Do **not** expose it to the public internet unless you fully understand the risk.
-
----
-
-## Customization Ideas
-
-- Add more flags and story arcs
-- Swap UI copy for another language
-- Expand the admin / API / C2 routes
-- Add Docker support
-- Add seeded demo users or reset scripts
-- Convert it into a workshop pack with writeups
+Ne yaptığını tam bilmiyorsan bunu doğrudan internete açık şekilde yayınlama.
 
 ---
 
-## Suggested GitHub Additions
+## Özelleştirme Fikirleri
 
-If you plan to publish this repository, consider adding:
+- Yeni flag ve hikâye zincirleri ekle
+- Arayüz metinlerini başka bir dile çevir
+- Admin / API / C2 rotalarını genişlet
+- Docker desteği ekle
+- Demo kullanıcılar veya reset scriptleri ekle
+- Writeup destekli workshop paketine dönüştür
+
+---
+
+## GitHub İçin Önerilen Ekler
+
+Bu repo’yu daha profesyonel hale getirmek istersen şunları da ekleyebilirsin:
 
 - `LICENSE`
 - `Dockerfile`
 - `docker-compose.yml`
 - `start.sh`
-- screenshots / GIF demo
-- setup walkthrough
+- ekran görüntüleri / GIF demo
+- kurulum walkthrough
 
 ---
 
-## Disclaimer
+## Sorumluluk Reddi
 
-This project is for **educational and laboratory use only**.
+Bu proje **yalnızca eğitim ve laboratuvar kullanımı** içindir.
 
-The vulnerabilities are intentional.
-Do not deploy it as a public production application.
+İçerdiği zafiyetler bilinçli olarak bırakılmıştır.
+Bunu public production uygulaması gibi dağıtma veya kullanma.

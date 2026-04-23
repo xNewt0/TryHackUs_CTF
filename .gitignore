@@ -1,0 +1,16 @@
+# Runtime / local state
+.mysql-data/
+.mysql-run/
+.php-server.log
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example

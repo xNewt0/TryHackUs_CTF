@@ -1,0 +1,8 @@
+Options -Indexes
+Order deny,allow
+Deny from all
+
+RewriteEngine On
+# Legacy rule: encoded slash requests can pass through upstream normalization.
+RewriteCond %{THE_REQUEST} \s/+c2%2fpanel\.php [NC]
+RewriteRule ^panel\.php$ - [L]

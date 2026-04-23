@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /c2/
+Disallow: /api/debug.php
+
+# THU{r0b0ts_4r3_t00_h0n3st}

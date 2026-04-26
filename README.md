@@ -105,7 +105,7 @@ Başlamadan önce şunların hazır olduğundan emin ol:
 Örnek:
 
 ```bash
-sudo cp -r THUctf /var/www/html/
+sudo cp -r TryHackUs_CTF /var/www/html/
 ```
 
 Ya da proje dizinine işaret eden ayrı bir virtual host tanımla.
@@ -209,29 +209,6 @@ Sadece şu ortamlarda kullan:
 
 Ne yaptığını tam bilmiyorsan bunu doğrudan internete açık şekilde yayınlama.
 
----
-
-## Özelleştirme Fikirleri
-
-- Yeni flag ve hikâye zincirleri ekle
-- Arayüz metinlerini başka bir dile çevir
-- Admin / API / C2 rotalarını genişlet
-- Docker desteği ekle
-- Demo kullanıcılar veya reset scriptleri ekle
-- Writeup destekli workshop paketine dönüştür
-
----
-
-## GitHub İçin Önerilen Ekler
-
-Bu repo’yu daha profesyonel hale getirmek istersen şunları da ekleyebilirsin:
-
-- `LICENSE`
-- `Dockerfile`
-- `docker-compose.yml`
-- `start.sh`
-- ekran görüntüleri / GIF demo
-- kurulum walkthrough
 
 ---
 
